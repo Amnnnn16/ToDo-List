@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet">
+    <title>ToDoS</title>
+</head>
+
+<body>
+    <div id="body">
+  
+    <div class="jsdate">
+        <%  function formatDate(dateString) {
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          
+            const date = new Date(dateString);
+            const day = date.getDate();
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+          
+            return `${day} ${month} ${year}`;
+          }
+          
+          const fullDateString = "Fri Jul 21 2023 15:29:11 GMT+0530 (India Standard Time)";
+          const formattedDate = formatDate(fullDateString); %> 
+      
+       
+    </div>
+    <!-- <header>
+        <h3 id="date"></h3>
+    </header> -->
+
+
+    <div id="heading">
+        <h1>ToDos For <%= formattedDate %></h1>
+        
+    </div>
+<div class="input">
+    <form action="/submit" method="post">
+        <h2 style="color:teal;font-weight:bold;font-size: 2rem;">New Task</h1>
+        <input type="text" name="task" />;
+        <button type="submit">+</button>
+    </form>
+</div>
+   
+    <div id="form">
+    <% if(locals.tasks){ %>
+
+
+        <% for(var i=0;i<tasks.length;i++) { %>
+            <label for="<%= tasks[i] %>">
+                <%= tasks[i] %>
+            </label>
+            <input type="checkbox" name=<%=tasks[i] %> id="checkbox">
+<br>
+            <% } }%>
+       </div>
+
+       <!-- <footer>
+        <h4>Created By Amnnn</h4>
+       </footer> -->
+    </div>
+</body>
+
+</html>
